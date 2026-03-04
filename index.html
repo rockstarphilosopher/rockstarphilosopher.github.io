@@ -628,16 +628,15 @@
             color: #000;
         }
 
-        /* FIXED: Blog content scrolling */
         .blog-content {
             font-size: 0.7rem;
             line-height: 1.8;
             color: #333;
             white-space: pre-wrap;
             font-family: 'Inter', monospace;
-            max-height: 70vh;
+            max-height: 60vh;
             overflow-y: auto;
-            padding-right: 1.5rem;
+            padding-right: 1rem;
             border-left: 2px solid #ffd966;
             padding-left: 1rem;
         }
@@ -677,46 +676,6 @@
         .stay-informed-btn:hover {
             background: #222;
             color: #fff;
-        }
-
-        /* Homepage blog preview cards */
-        .home-blog-card {
-            background: rgba(20,20,20,0.6);
-            border: 0.5px solid rgba(255,215,0,0.2);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(4px);
-            transition: 0.2s;
-        }
-        .home-blog-card:hover {
-            border-color: rgba(255,215,0,0.5);
-        }
-        .home-blog-card h3 {
-            color: #ffd966;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-        .home-blog-card p {
-            color: #ccc;
-            font-size: 0.65rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        /* Course preview buttons */
-        .course-preview-btn {
-            background: transparent;
-            border: 0.5px solid goldenrod;
-            padding: 0.8rem 1.5rem;
-            color: white;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: 0.2s;
-            min-width: 180px;
-        }
-        .course-preview-btn:hover {
-            background: gold;
-            color: black;
         }
 
         .stars-overlay {
@@ -926,7 +885,7 @@
             <a href="#" class="star-item" data-page="music">Music</a>
             <a href="#" class="star-item" data-page="blog">Blog</a>
             <a href="#" class="star-item" data-page="education">Edu</a>
-            <a href="#" class="star-item.search-star" id="starSearch">🔍</a>
+            <a href="#" class="star-item search-star" id="starSearch">🔍</a>
         </div>
     </div>
 
@@ -1127,26 +1086,9 @@
     <!-- main content sections -->
     <div class="content" id="mainContent">
         <section id="home" class="page-section active-section">
-            <!-- Original home greeting (unchanged) -->
             <div style="text-align:center; margin-top:12vh; color:rgba(255,255,255,0.4);">
                 <p style="font-size:0.7rem;">A ⊂ 0</p>
                 <p style="margin-top:1rem;">hover over the logo</p>
-            </div>
-
-            <!-- NEW: Latest Essays section (visible after scrolling) -->
-            <div style="margin-top: 20vh; padding: 2rem 0; border-top: 0.5px solid rgba(255,215,0,0.2);">
-                <h2 style="font-weight:300; color:#ffd966; text-align:center; margin-bottom:2rem;">LATEST WRITINGS</h2>
-                <div id="homeBlogList" style="max-width:800px; margin:0 auto;"></div>
-            </div>
-
-            <!-- NEW: Course Preview section (clickable, no prices) -->
-            <div style="margin-top: 5vh; padding: 2rem 0;">
-                <h2 style="font-weight:300; color:#ffd966; text-align:center; margin-bottom:2rem;">EXPLORE COURSES</h2>
-                <div style="display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
-                    <button class="course-preview-btn" data-course="critical">Critical Thinking</button>
-                    <button class="course-preview-btn" data-course="therapy">Philosophy & Art Therapy</button>
-                    <button class="course-preview-btn" data-course="ai">Art & AI</button>
-                </div>
             </div>
         </section>
 
@@ -1235,13 +1177,15 @@
             constructor() {
                 this.loginAttempts = 0;
                 this.lockUntil = 0;
-                this.sessionTimeout = 30 * 60 * 1000;
+                this.sessionTimeout = 30 * 60 * 1000; // 30 minutes default
                 this.sessionTimer = null;
                 this.auditLog = this.loadAuditLog();
                 this.init();
             }
 
+            // Initialize security
             init() {
+                // Check for existing session
                 const session = localStorage.getItem('secure_session');
                 if (session) {
                     try {
@@ -1256,6 +1200,7 @@
                 }
             }
 
+            // ===== ENCRYPTION =====
             async getEncryptionKey(password) {
                 const encoder = new TextEncoder();
                 const keyMaterial = await crypto.subtle.importKey(
@@ -1323,6 +1268,7 @@
                 }
             }
 
+            // ===== HASHING =====
             async hashPassword(password) {
                 const encoder = new TextEncoder();
                 const data = encoder.encode(password);
@@ -1332,6 +1278,7 @@
                     .join('');
             }
 
+            // ===== SESSION MANAGEMENT =====
             startSessionTimer() {
                 if (this.sessionTimer) clearInterval(this.sessionTimer);
                 
@@ -1341,7 +1288,9 @@
                     created: Date.now()
                 };
                 
+                // Encrypt session data
                 this.getEncryptionKey('session_key').then(key => {
+                    // Store encrypted session
                     localStorage.setItem('secure_session', JSON.stringify(sessionData));
                 });
 
@@ -1373,6 +1322,7 @@
                 sessionStorage.removeItem('admin_logged_in');
             }
 
+            // ===== RATE LIMITING =====
             checkRateLimit() {
                 if (Date.now() < this.lockUntil) {
                     const remaining = Math.ceil((this.lockUntil - Date.now()) / 60000);
@@ -1384,7 +1334,7 @@
             recordFailedAttempt() {
                 this.loginAttempts++;
                 if (this.loginAttempts >= 5) {
-                    this.lockUntil = Date.now() + 15 * 60 * 1000;
+                    this.lockUntil = Date.now() + 15 * 60 * 1000; // 15 min lock
                     this.loginAttempts = 0;
                     this.logAudit('rate_limit', 'Account locked for 15 minutes');
                 }
@@ -1396,13 +1346,14 @@
                 this.logAudit('rate_limit', 'Rate limit reset by admin');
             }
 
+            // ===== AUDIT LOGGING =====
             loadAuditLog() {
                 const log = localStorage.getItem('audit_log');
                 return log ? JSON.parse(log) : [];
             }
 
             saveAuditLog() {
-                localStorage.setItem('audit_log', JSON.stringify(this.auditLog.slice(-100)));
+                localStorage.setItem('audit_log', JSON.stringify(this.auditLog.slice(-100))); // Keep last 100 entries
             }
 
             logAudit(action, details) {
@@ -1416,6 +1367,7 @@
                 this.saveAuditLog();
             }
 
+            // ===== CONTENT SANITIZATION =====
             sanitizeHTML(str) {
                 const div = document.createElement('div');
                 div.textContent = str;
@@ -1425,6 +1377,7 @@
             sanitizeURL(url) {
                 try {
                     const parsed = new URL(url);
+                    // Only allow specific domains
                     const allowed = ['vimeo.com', 'teachable.com', 'skillshare.com', 'patreon.com'];
                     if (allowed.some(domain => parsed.hostname.includes(domain))) {
                         return url;
@@ -1435,6 +1388,7 @@
                 }
             }
 
+            // ===== DATA ENCRYPTION FOR STORAGE =====
             async encryptStorage(data, password) {
                 const encrypted = await this.encrypt(JSON.stringify(data), password);
                 return encrypted;
@@ -1655,12 +1609,6 @@
                 };
                 
                 this.data.visits.push(visit);
-                
-                // Data growth management (keep last 5000 visits)
-                if (this.data.visits.length > 10000) {
-                    this.data.visits = this.data.visits.slice(-5000);
-                }
-                
                 this.updateDailyStats('visits', visit.date);
                 this.saveData();
             }
@@ -1681,12 +1629,6 @@
                 };
                 
                 this.data.pageViews.push(pageView);
-                
-                // Data growth management (keep last 10000 page views)
-                if (this.data.pageViews.length > 20000) {
-                    this.data.pageViews = this.data.pageViews.slice(-10000);
-                }
-                
                 this.updateDailyStats('pageViews', pageView.date);
                 this.updateDailyStats('page_' + page, pageView.date);
                 this.saveData();
@@ -1926,9 +1868,6 @@
                     bodyEl.classList.add('home-active');
                     floatingTriangle.style.opacity = '1';
                     logoContainer.style.opacity = '1';
-                    
-                    // Render home page blogs when home is activated
-                    renderHomeBlogs();
                 } else {
                     bodyEl.classList.remove('home-active');
                     floatingTriangle.style.opacity = '0.25';
@@ -2053,41 +1992,6 @@
                         document.getElementById('blogDisplayView').classList.remove('hidden');
                     });
                     container.appendChild(item);
-                });
-            }
-
-            // NEW: Render blog previews on homepage
-            function renderHomeBlogs() {
-                const container = document.getElementById('homeBlogList');
-                if (!container) return;
-                container.innerHTML = '';
-                
-                // Get latest 3 blogs (last 3 keys)
-                const entries = Object.entries(blogs).slice(-3).reverse();
-                
-                entries.forEach(([key, blog]) => {
-                    const excerpt = blog.content.substring(0, 200) + '…';
-                    
-                    const card = document.createElement('div');
-                    card.className = 'home-blog-card';
-                    card.innerHTML = `
-                        <h3>${security.sanitizeHTML(blog.title)}</h3>
-                        <p>${security.sanitizeHTML(excerpt)}</p>
-                        <button class="back-button" data-blog="${key}" style="margin:0;">Read full essay</button>
-                    `;
-                    
-                    card.querySelector('button').addEventListener('click', () => {
-                        // Switch to blog page and open this blog
-                        setActivePage('blog');
-                        setTimeout(() => {
-                            document.getElementById('blogDisplayTitle').textContent = security.sanitizeHTML(blog.title);
-                            document.getElementById('blogDisplayContent').textContent = blog.content;
-                            document.getElementById('blogListView').classList.add('hidden');
-                            document.getElementById('blogDisplayView').classList.remove('hidden');
-                        }, 100);
-                    });
-                    
-                    container.appendChild(card);
                 });
             }
 
@@ -2389,7 +2293,6 @@
                 blogs[id] = { title, content };
                 saveBlogs();
                 renderAdminBlogList();
-                renderHomeBlogs(); // Update homepage previews
                 document.getElementById('newBlogTitle').value = '';
                 document.getElementById('newBlogContent').value = '';
                 adminStatus.textContent = 'Blog saved';
@@ -2479,18 +2382,6 @@
 
             function updateAdminUI() {
                 const loggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
-                
-                // Disable create profile button if profile already exists
-                if (localStorage.getItem('admin_created') === 'true') {
-                    adminCreateBtn.disabled = true;
-                    adminCreateBtn.style.opacity = '0.5';
-                    adminCreateBtn.title = 'Profile already created - only one admin allowed';
-                } else {
-                    adminCreateBtn.disabled = false;
-                    adminCreateBtn.style.opacity = '1';
-                    adminCreateBtn.title = '';
-                }
-                
                 if (loggedIn) {
                     adminAuthSection.style.display = 'none';
                     adminDashboard.style.display = 'block';
@@ -2507,12 +2398,6 @@
             }
 
             adminCreateBtn.addEventListener('click', async () => {
-                // NEW: Prevent creating second profile
-                if (localStorage.getItem('admin_created') === 'true') {
-                    adminStatus.textContent = 'Admin profile already exists. Only one profile allowed.';
-                    return;
-                }
-                
                 const user = adminUsername.value.trim();
                 const pass = adminPassword.value.trim();
                 if (!user || !pass) {
@@ -2524,7 +2409,6 @@
                 localStorage.setItem('admin_created', 'true');
                 adminExists = true;
                 adminStatus.textContent = 'Profile created. You can now login.';
-                updateAdminUI(); // Update button state
             });
 
             adminLoginBtn2.addEventListener('click', async () => {
@@ -2553,14 +2437,6 @@
 
             adminLogout.addEventListener('click', () => {
                 security.logout();
-            });
-
-            // Course preview buttons on homepage
-            document.querySelectorAll('.course-preview-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setActivePage('education');
-                    // Optional: scroll to specific course or highlight it
-                });
             });
 
             // Initialize
