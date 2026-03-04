@@ -1,29 +1,3 @@
-# Security Layer Implementation for GitHub Pages Deployment
-
-Perfect! Since you're deploying on **GitHub Pages** (static hosting), we need a security approach that works **without a backend server**. Here's a comprehensive security layer that's **GitHub Pages compatible**:
-
-## Security Architecture for Static Sites
-
-```
-┌─────────────────────────────────────┐
-│    GitHub Pages (Static Hosting)    │
-├─────────────────────────────────────┤
-│  🔐 Client-Side Security Layer      │
-│  ├── Encrypted localStorage         │
-│  ├── Session management             │
-│  ├── Content sanitization           │
-│  ├── Rate limiting                  │
-│  └── XSS protection                 │
-└─────────────────────────────────────┘
-```
-
----
-
-## Complete Security-Enhanced Website
-
-Here's your website with a **full security layer** - copy and paste this entire code:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,8 +5,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A⊙0 · portfolio [secure]</title>
     <style>
-        /* ===== ALL PREVIOUS STYLES REMAIN EXACTLY THE SAME ===== */
-        /* (Keeping all your existing CSS - not repeated for brevity) */
+        /* ===== RESET & GLOBAL ===== */
         * {
             margin: 0;
             padding: 0;
@@ -51,6 +24,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             overflow-x: hidden;
         }
 
+        /* ----- PERMANENT DEEP SPACE BACKGROUND ----- */
         .space-beam {
             position: fixed;
             top: 0;
@@ -92,6 +66,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             box-shadow: 0 0 25px 12px #ffffff, 0 0 60px 20px #fffde7;
         }
 
+        /* ----- FLOATING TRIANGLE (top, above logo) ----- */
         .floating-triangle {
             position: fixed;
             top: 12vh;
@@ -108,6 +83,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             pointer-events: none;
         }
 
+        /* ----- INTERACTIVE LOGO (A inside 0) ----- */
         .logo-container {
             position: fixed;
             top: 50%;
@@ -1015,7 +991,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             </div>
         </div>
 
-        <!-- SECURITY MANAGER (NEW) -->
+        <!-- SECURITY MANAGER -->
         <div class="admin-section" id="adminSecuritySection" style="display:none;">
             <h2>🔒 SECURITY SETTINGS</h2>
             
@@ -1054,7 +1030,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             </div>
         </div>
 
-        <!-- Other admin sections (Blog, Film, Music, Course) remain same -->
+        <!-- Blog Management -->
         <div class="admin-section" id="adminBlogSection" style="display:none;">
             <h2>📝 BLOG MANAGER <span class="info-icon" data-tooltip="Content is sanitized • XSS protected">i</span></h2>
             <div id="adminBlogList" class="admin-list"></div>
@@ -1065,6 +1041,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             <button class="admin-btn" id="backFromBlogs">← Back</button>
         </div>
 
+        <!-- Film Management -->
         <div class="admin-section" id="adminFilmSection" style="display:none;">
             <h2>🎬 FILM MANAGER</h2>
             <div id="adminFilmList" class="admin-list"></div>
@@ -1075,6 +1052,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             <button class="admin-btn" id="backFromFilms">← Back</button>
         </div>
 
+        <!-- Music Settings -->
         <div class="admin-section" id="adminMusicSection" style="display:none;">
             <h2>🎵 MUSIC SETTINGS</h2>
             <div style="margin-bottom:1rem;">
@@ -1085,6 +1063,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             <button class="admin-btn" id="backFromMusic">← Back</button>
         </div>
 
+        <!-- Course Management -->
         <div class="admin-section" id="adminCourseSection" style="display:none;">
             <h2>📚 COURSE MANAGER</h2>
             <div style="margin-bottom:1rem;">
@@ -1553,7 +1532,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
             });
         }
 
-        // ===== ANALYTICS ENGINE (from previous version) =====
+        // ===== ANALYTICS ENGINE =====
         class AnalyticsEngine {
             constructor(security) {
                 this.security = security;
@@ -2008,7 +1987,7 @@ Here's your website with a **full security layer** - copy and paste this entire 
                     item.textContent = security.sanitizeHTML(blogs[key].title);
                     item.addEventListener('click', () => {
                         document.getElementById('blogDisplayTitle').textContent = security.sanitizeHTML(blogs[key].title);
-                        document.getElementById('blogDisplayContent').textContent = blogs[key].content; // Content already safe from storage
+                        document.getElementById('blogDisplayContent').textContent = blogs[key].content;
                         document.getElementById('blogListView').classList.add('hidden');
                         document.getElementById('blogDisplayView').classList.remove('hidden');
                     });
@@ -2265,4 +2244,207 @@ Here's your website with a **full security layer** - copy and paste this entire 
                 security.auditLog.slice(-10).reverse().forEach(entry => {
                     container.innerHTML += `
                         <div style="padding:0.3rem; border-bottom:0.5px solid #333; font-size:0.55rem;">
-                            <span style="color:#666;">${new Date(entry.timestamp).toLocaleString()}</span>
+                            <span style="color:#666;">${new Date(entry.timestamp).toLocaleString()}</span> - ${entry.action}: ${entry.details}
+                        </div>
+                    `;
+                });
+            }
+
+            function renderAdminBlogList() {
+                const listDiv = document.getElementById('adminBlogList');
+                listDiv.innerHTML = '<h3 style="color:#666;">Current Blogs</h3>';
+                Object.keys(blogs).forEach(key => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-list-item';
+                    item.innerHTML = `<span>${blogs[key].title}</span><button class="admin-btn" data-key="${key}">Delete</button>`;
+                    item.querySelector('button').addEventListener('click', () => {
+                        delete blogs[key];
+                        saveBlogs();
+                        renderAdminBlogList();
+                    });
+                    listDiv.appendChild(item);
+                });
+            }
+
+            function renderAdminFilmList() {
+                const listDiv = document.getElementById('adminFilmList');
+                listDiv.innerHTML = '<h3 style="color:#666;">Current Films</h3>';
+                films.forEach((film, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-list-item';
+                    item.innerHTML = `<span>${film.title}</span><button class="admin-btn" data-index="${index}">Delete</button>`;
+                    item.querySelector('button').addEventListener('click', () => {
+                        films.splice(index, 1);
+                        saveFilms();
+                        renderAdminFilmList();
+                    });
+                    listDiv.appendChild(item);
+                });
+            }
+
+            document.getElementById('saveNewBlog').addEventListener('click', () => {
+                const title = document.getElementById('newBlogTitle').value.trim();
+                const content = document.getElementById('newBlogContent').value.trim();
+                if (!title || !content) {
+                    adminStatus.textContent = 'Title and content required';
+                    return;
+                }
+                const id = 'blog-' + Date.now();
+                blogs[id] = { title, content };
+                saveBlogs();
+                renderAdminBlogList();
+                document.getElementById('newBlogTitle').value = '';
+                document.getElementById('newBlogContent').value = '';
+                adminStatus.textContent = 'Blog saved';
+            });
+
+            document.getElementById('saveNewFilm').addEventListener('click', () => {
+                const title = document.getElementById('newFilmTitle').value.trim();
+                const url = document.getElementById('newFilmUrl').value.trim();
+                if (!title || !url) {
+                    adminStatus.textContent = 'Title and URL required';
+                    return;
+                }
+                const match = url.match(/(?:vimeo\.com\/|video\/)(\d+)/);
+                if (!match) {
+                    adminStatus.textContent = 'Invalid Vimeo URL';
+                    return;
+                }
+                const id = match[1];
+                const thumbnail = `https://i.vimeocdn.com/video/${id}?mw=300&mh=169`;
+                
+                films.push({ title, id, thumbnail });
+                saveFilms();
+                renderAdminFilmList();
+                document.getElementById('newFilmTitle').value = '';
+                document.getElementById('newFilmUrl').value = '';
+                adminStatus.textContent = 'Film added';
+            });
+
+            function loadMusicSettings() {
+                const settings = JSON.parse(localStorage.getItem('music_settings') || '{"rotationSpeed":0.8}');
+                document.getElementById('musicRotationSpeed').value = settings.rotationSpeed || 0.8;
+            }
+
+            document.getElementById('saveMusicSettings').addEventListener('click', () => {
+                const settings = {
+                    rotationSpeed: parseFloat(document.getElementById('musicRotationSpeed').value)
+                };
+                localStorage.setItem('music_settings', JSON.stringify(settings));
+                adminStatus.textContent = 'Music settings saved (refresh to see changes)';
+            });
+
+            document.getElementById('saveCourseSettings').addEventListener('click', () => {
+                courses[0].price = parseInt(document.getElementById('course1Price').value);
+                courses[1].price = parseInt(document.getElementById('course2Price').value);
+                courses[2].price = parseInt(document.getElementById('course3Price').value);
+                saveCourses();
+                renderCourses();
+                adminStatus.textContent = 'Course prices updated';
+            });
+
+            document.getElementById('saveSessionTimeout').addEventListener('click', () => {
+                const minutes = parseInt(document.getElementById('sessionTimeout').value);
+                security.sessionTimeout = minutes * 60 * 1000;
+                adminStatus.textContent = 'Session timeout updated';
+            });
+
+            document.getElementById('resetLoginLock').addEventListener('click', () => {
+                security.resetRateLimit();
+                adminStatus.textContent = 'Login lock reset';
+            });
+
+            document.getElementById('rotateEncryptionKey').addEventListener('click', () => {
+                adminStatus.textContent = 'Encryption key rotation simulated';
+            });
+
+            document.getElementById('exportSecurityLog').addEventListener('click', () => {
+                const dataStr = JSON.stringify(security.auditLog, null, 2);
+                const blob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `security-log-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+            });
+
+            // Admin auth
+            let adminExists = localStorage.getItem('admin_created') === 'true';
+
+            adminLoginBtn.addEventListener('click', () => {
+                adminPanel.classList.add('active');
+                updateAdminUI();
+            });
+
+            adminClose.addEventListener('click', () => {
+                adminPanel.classList.remove('active');
+            });
+
+            function updateAdminUI() {
+                const loggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
+                if (loggedIn) {
+                    adminAuthSection.style.display = 'none';
+                    adminDashboard.style.display = 'block';
+                    adminBlogSection.style.display = 'none';
+                    adminFilmSection.style.display = 'none';
+                    adminMusicSection.style.display = 'none';
+                    adminCourseSection.style.display = 'none';
+                    adminAnalyticsSection.style.display = 'none';
+                    adminSecuritySection.style.display = 'none';
+                } else {
+                    adminAuthSection.style.display = 'block';
+                    adminDashboard.style.display = 'none';
+                }
+            }
+
+            adminCreateBtn.addEventListener('click', async () => {
+                const user = adminUsername.value.trim();
+                const pass = adminPassword.value.trim();
+                if (!user || !pass) {
+                    adminStatus.textContent = 'Please enter username and password';
+                    return;
+                }
+                const hash = await security.hashPassword(user + ':' + pass);
+                localStorage.setItem('admin_hash', hash);
+                localStorage.setItem('admin_created', 'true');
+                adminExists = true;
+                adminStatus.textContent = 'Profile created. You can now login.';
+            });
+
+            adminLoginBtn2.addEventListener('click', async () => {
+                try {
+                    security.checkRateLimit();
+                    const user = adminUsername.value.trim();
+                    const pass = adminPassword.value.trim();
+                    const storedHash = localStorage.getItem('admin_hash');
+                    const inputHash = await security.hashPassword(user + ':' + pass);
+                    
+                    if (inputHash === storedHash) {
+                        sessionStorage.setItem('admin_logged_in', 'true');
+                        security.startSessionTimer();
+                        adminStatus.textContent = 'Login successful';
+                        updateAdminUI();
+                        security.logAudit('login', 'Admin logged in');
+                    } else {
+                        security.recordFailedAttempt();
+                        adminStatus.textContent = 'Invalid credentials';
+                        security.logAudit('login_failed', 'Failed login attempt');
+                    }
+                } catch(e) {
+                    adminStatus.textContent = e.message;
+                }
+            });
+
+            adminLogout.addEventListener('click', () => {
+                security.logout();
+            });
+
+            // Initialize
+            renderFilmGrid();
+            renderBlogList();
+            renderCourses();
+            setActivePage('home');
+        })();
+    </script>
+</body>
+</html>
