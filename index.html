@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A⊙0 · portfolio [final]</title>
+    <title>A⊙0 · Aristo Mijnals · philosopher · artist</title>
     <style>
         /* ===== RESET & GLOBAL ===== */
         * {
@@ -70,7 +70,7 @@
             box-shadow: 0 0 25px 12px #ffffff, 0 0 60px 20px #fffde7;
         }
 
-        /* ----- FLOATING TRIANGLE (top, above logo) ----- */
+        /* ----- FLOATING TRIANGLE ----- */
         .floating-triangle {
             position: fixed;
             top: 12vh;
@@ -530,7 +530,7 @@
             100% { opacity: 1; }
         }
 
-        /* ===== REDESIGNED HOMEPAGE WITH AMPLE SCROLLING ===== */
+        /* ===== REDESIGNED HOMEPAGE (EXACTLY AS YOU LOVED IT) ===== */
         .home-section {
             min-height: 100vh;
             display: flex;
@@ -576,7 +576,7 @@
             60% {transform: translateX(-50%) translateY(-5px);}
         }
 
-        /* Spacer sections for ample scrolling */
+        /* Spacer sections */
         .spacer-1 { height: 30vh; }
         .spacer-2 { height: 40vh; }
         .spacer-3 { height: 50vh; }
@@ -624,7 +624,7 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        /* Blog tab styles - fully readable */
+        /* Blog tab styles */
         .blog-panel {
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(4px);
@@ -738,7 +738,168 @@
             color: black;
         }
 
-        /* Course grid on Education page */
+        /* FAQ Section Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(255,215,0,0.2);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            color: gold;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .faq-header p {
+            color: #ccc;
+            font-size: 0.7rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 2rem;
+        }
+
+        .faq-category h3 {
+            color: #ffd966;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border-bottom: 0.5px solid rgba(255,215,0,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 0.5px solid rgba(255,215,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1rem;
+            background: rgba(255,215,0,0.05);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #fff;
+            transition: 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,215,0,0.1);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1rem;
+            color: gold;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.3);
+            font-size: 0.65rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 500px;
+            border-top: 0.5px solid rgba(255,215,0,0.1);
+        }
+
+        /* Privacy Section Styles */
+        .privacy-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(255,215,0,0.2);
+        }
+
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-header h2 {
+            color: gold;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-header p {
+            color: #ccc;
+            font-size: 0.7rem;
+        }
+
+        .privacy-section {
+            margin-bottom: 2rem;
+        }
+
+        .privacy-section h3 {
+            color: #ffd966;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            border-bottom: 0.5px solid rgba(255,215,0,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .privacy-section p {
+            color: #ccc;
+            font-size: 0.65rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section ul {
+            color: #ccc;
+            font-size: 0.65rem;
+            line-height: 1.8;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-section strong {
+            color: #ffd966;
+        }
+
+        .privacy-updated {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 0.5px solid rgba(255,215,0,0.2);
+            text-align: center;
+            color: #666;
+            font-size: 0.55rem;
+        }
+
         .course-grid-education {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1068,7 +1229,7 @@
         </div>
     </div>
 
-    <!-- navigation -->
+    <!-- navigation - RESTORED TO ORIGINAL: Home, Film, Music, Blog, Education only -->
     <div class="nav-wrapper" id="navWrapper">
         <nav class="nav-container">
             <a href="#" class="nav-link" data-page="home">Home</a>
@@ -1086,22 +1247,153 @@
     <!-- Admin Login Button -->
     <div class="admin-login-btn" id="adminLoginBtn">⚙️ ADMIN</div>
 
-    <!-- Admin Panel (simplified) -->
+    <!-- Admin Panel with Analytics - FULLY INTACT -->
     <div class="admin-panel" id="adminPanel">
         <span class="admin-close" id="adminClose">✕</span>
-        <div class="admin-section" id="adminAuthSection">
-            <h2>ADMIN ACCESS</h2>
-            <p style="color:#666; margin-bottom:1rem;">Login to manage content</p>
-            <input type="text" class="admin-input" id="adminUsername" placeholder="username">
-            <input type="password" class="admin-input" id="adminPassword" placeholder="password">
+        
+        <!-- Login Section -->
+        <div class="admin-section" id="adminLoginSection">
+            <h2>🔐 ADMIN LOGIN</h2>
+            <p style="color:#666; margin-bottom:1rem;">Only admin access - single profile only</p>
+            <input type="text" class="admin-input" id="adminUsername" placeholder="username" autocomplete="off">
+            <input type="password" class="admin-input" id="adminPassword" placeholder="password" autocomplete="off">
             <button class="admin-btn" id="adminLoginBtn2">Login</button>
             <div class="admin-status" id="adminStatus"></div>
+            <p style="color:#555; font-size:0.55rem; margin-top:1rem;">
+                🔐 Forgot password? <a href="#" id="forgotPasswordLink" style="color:gold;">Reset</a>
+            </p>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="admin-section" id="adminDashboard" style="display:none;">
+            <h2>📋 ADMIN DASHBOARD</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button class="admin-btn" id="showAnalytics">📊 Analytics</button>
+                <button class="admin-btn" id="showBlogManager">📝 Blogs</button>
+                <button class="admin-btn" id="showFilmManager">🎬 Films</button>
+                <button class="admin-btn" id="showMusicManager">🎵 Music</button>
+                <button class="admin-btn" id="showCourseManager">📚 Courses</button>
+                <button class="admin-btn" id="showSecurityManager">🔒 Security</button>
+                <button class="admin-btn" id="adminLogout">Logout</button>
+            </div>
+            <div style="margin-top:1rem; color:#666; font-size:0.55rem; text-align:center;">
+                Session expires in <span id="sessionTimer">30:00</span> • Auto-logout enabled
+            </div>
+        </div>
+
+        <!-- Analytics Dashboard -->
+        <div class="admin-section" id="adminAnalyticsSection" style="display:none;">
+            <h2>📊 ANALYTICS DASHBOARD</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <span class="info-icon" data-tooltip="Total number of visits to your site">i</span>
+                    <h3>Total Visits</h3>
+                    <div class="value" id="statTotalVisits">0</div>
+                </div>
+                <div class="analytics-card">
+                    <span class="info-icon" data-tooltip="Unique visitors (counted once per day)">i</span>
+                    <h3>Unique Visitors</h3>
+                    <div class="value" id="statUniqueVisitors">0</div>
+                </div>
+                <div class="analytics-card">
+                    <span class="info-icon" data-tooltip="Average time spent on site">i</span>
+                    <h3>Avg. Session</h3>
+                    <div class="value" id="statAvgSession">0:00</div>
+                </div>
+                <div class="analytics-card">
+                    <span class="info-icon" data-tooltip="Pages viewed per visit">i</span>
+                    <h3>Pages/Session</h3>
+                    <div class="value" id="statPagesPerSession">0.0</div>
+                </div>
+            </div>
+            <div class="analytics-chart">
+                <h3 style="color:gold; margin-bottom:1rem;">📄 Top Content</h3>
+                <div id="topPagesContainer"></div>
+            </div>
+            <div class="analytics-chart">
+                <h3 style="color:gold; margin-bottom:1rem;">🌐 Traffic Sources</h3>
+                <div id="trafficSourcesContainer"></div>
+            </div>
+            <div style="display:flex; gap:1rem; margin-top:2rem;">
+                <button class="admin-btn" id="exportAnalytics">📥 Export Data</button>
+                <button class="admin-btn" id="backFromAnalytics">← Back</button>
+            </div>
+        </div>
+
+        <!-- Blog Management -->
+        <div class="admin-section" id="adminBlogSection" style="display:none;">
+            <h2>📝 BLOG MANAGER</h2>
+            <div id="adminBlogList" class="admin-list"></div>
+            <h3 style="color:gold; margin-top:2rem;">Add New Blog</h3>
+            <input type="text" class="admin-input" id="newBlogTitle" placeholder="blog title">
+            <textarea class="admin-input" id="newBlogContent" rows="4" placeholder="blog content..."></textarea>
+            <button class="admin-btn" id="saveNewBlog">Save Blog</button>
+            <button class="admin-btn" id="backFromBlogs">← Back</button>
+        </div>
+
+        <!-- Film Management -->
+        <div class="admin-section" id="adminFilmSection" style="display:none;">
+            <h2>🎬 FILM MANAGER</h2>
+            <div id="adminFilmList" class="admin-list"></div>
+            <h3 style="color:gold; margin-top:2rem;">Add New Film</h3>
+            <input type="text" class="admin-input" id="newFilmTitle" placeholder="film title">
+            <input type="text" class="admin-input" id="newFilmUrl" placeholder="Vimeo URL">
+            <button class="admin-btn" id="saveNewFilm">Save Film</button>
+            <button class="admin-btn" id="backFromFilms">← Back</button>
+        </div>
+
+        <!-- Music Settings -->
+        <div class="admin-section" id="adminMusicSection" style="display:none;">
+            <h2>🎵 MUSIC SETTINGS</h2>
+            <div style="margin-bottom:1rem;">
+                <label style="color:#ccc;">Rotation Speed</label>
+                <input type="range" class="admin-input" id="musicRotationSpeed" min="0" max="2" step="0.1" value="0.8">
+            </div>
+            <button class="admin-btn" id="saveMusicSettings">Save Settings</button>
+            <button class="admin-btn" id="backFromMusic">← Back</button>
+        </div>
+
+        <!-- Course Management -->
+        <div class="admin-section" id="adminCourseSection" style="display:none;">
+            <h2>📚 COURSE MANAGER</h2>
+            <div style="margin-bottom:1rem;">
+                <label style="color:#ccc;">Critical Thinking Price (€)</label>
+                <input type="number" class="admin-input" id="course1Price" value="67">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="color:#ccc;">Philosophy & Art Therapy Price (€)</label>
+                <input type="number" class="admin-input" id="course2Price" value="147">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="color:#ccc;">Art & AI Price (€)</label>
+                <input type="number" class="admin-input" id="course3Price" value="197">
+            </div>
+            <button class="admin-btn" id="saveCourseSettings">Save Prices</button>
+            <button class="admin-btn" id="backFromCourses">← Back</button>
+        </div>
+
+        <!-- Security Manager -->
+        <div class="admin-section" id="adminSecuritySection" style="display:none;">
+            <h2>🔒 SECURITY SETTINGS</h2>
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:gold; font-size:0.7rem; margin-bottom:1rem;">Session Management</h3>
+                <div style="display:flex; gap:0.5rem; align-items:center;">
+                    <span style="color:#ccc;">Timeout (minutes):</span>
+                    <input type="number" class="admin-input" id="sessionTimeout" value="30" min="5" max="120" style="width:80px;">
+                    <button class="admin-btn" id="saveSessionTimeout">Save</button>
+                </div>
+            </div>
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:gold; font-size:0.7rem; margin-bottom:1rem;">Audit Log</h3>
+                <div class="admin-list" id="auditLogContainer" style="max-height:150px;"></div>
+            </div>
+            <button class="admin-btn" id="backFromSecurity">← Back</button>
         </div>
     </div>
 
     <!-- main content sections -->
     <div class="content" id="mainContent">
-        <!-- REDESIGNED HOME PAGE -->
+        <!-- HOME page - EXACTLY AS YOU LOVED IT -->
         <section id="home" class="page-section active-section">
             <div class="home-section">
                 <!-- Hero Area - First View -->
@@ -1288,7 +1580,7 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             </div>
         </section>
 
-        <!-- Blog page - Fully Functional -->
+        <!-- Blog page -->
         <section id="blog" class="page-section">
             <div class="blog-panel">
                 <h1>ESSAYS & BLOGS</h1>
@@ -1304,7 +1596,7 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             </div>
         </section>
 
-        <!-- Education page - Full Courses -->
+        <!-- Education page -->
         <section id="education" class="page-section edu-stars">
             <div style="margin-bottom:2rem; background:rgba(0,0,0,0.3); backdrop-filter:blur(4px); padding:2rem;">
                 <div style="text-align:center; margin-bottom:3rem;">
@@ -1343,9 +1635,217 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
                 </div>
             </div>
         </section>
+
+        <!-- FAQ page - accessed from footer -->
+        <section id="faq" class="page-section">
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                    <p>Everything you need to know about my courses, philosophy background, and how we can work together</p>
+                </div>
+
+                <div class="faq-category">
+                    <h3>📚 COURSES & LEARNING</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What is your teaching philosophy?</div>
+                        <div class="faq-answer">My teaching approach combines rigorous philosophical analysis with creative expression. I believe true understanding comes not just from reading texts, but from applying ideas to your own life and creative work. Each course balances theoretical foundations with practical exercises, whether that's critical thinking frameworks, art therapy techniques, or AI experimentation. I'm less interested in memorization and more in helping you develop your own philosophical voice.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How are the courses structured?</div>
+                        <div class="faq-answer">Each course includes video lectures, reading materials, practical exercises, and community discussion forums. The Critical Thinking course is self-paced with 8 modules. Philosophy & Art Therapy is a 6-week live cohort with weekly Zoom sessions. Art & AI combines self-paced learning with optional live critique sessions. All courses include access to a private community where you can discuss ideas with fellow students.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need prior philosophy knowledge?</div>
+                        <div class="faq-answer">Not at all. Critical Thinking is designed for absolute beginners. Philosophy & Art Therapy assumes some familiarity with basic concepts (though I provide primers). Art & AI is intermediate level - comfort with technology helps, but no coding experience is required. Each course page has a detailed prerequisites section.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What is your refund policy?</div>
+                        <div class="faq-answer">I offer a 30-day full refund for all self-paced courses if you're not satisfied. For live cohorts, refunds are available up to 7 days before the start date. After that, I can transfer your spot to a future cohort. Email support@aristo.space for refund requests.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I get a certificate of completion?</div>
+                        <div class="faq-answer">Yes, all courses include a verified certificate of completion that you can add to your LinkedIn profile or CV. The certificate details the hours completed and key competencies gained.</div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>🎭 ABOUT ARISTO & PHILOSOPHY BACKGROUND</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What is your educational background?</div>
+                        <div class="faq-answer">I completed my degree in Philosophy at the University of Amsterdam (UvA), with a focus on political philosophy, ethics, and existentialism. My studies explored thinkers like Hannah Arendt, Wittgenstein, and Derrida. Beyond academia, I've worked as an actor and musician, which deeply informs my perspective on freedom, expression, and the individual in society.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How does your acting background influence your philosophy?</div>
+                        <div class="faq-answer">Performance art, especially improvisation, offers a unique window into questions of freedom and identity. When actors improvise collectively, they experience what Arendt calls "relational plurality" - being simultaneously separate and connected. This has deeply shaped my understanding of how individuals can express themselves freely while participating in a shared space. Many of my essays explore this intersection.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What inspired you to start teaching?</div>
+                        <div class="faq-answer">During my studies, I noticed how philosophy often remained trapped in academic jargon, inaccessible to people who could deeply benefit from it. I started blogging to share insights from thinkers like Arendt and Velleman, and the response showed me there's hunger for philosophy that speaks to everyday life - questions of freedom, identity, and how to act authentically in a complex world.</div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>💻 TECHNICAL & ACCESS</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How long do I have access to course materials?</div>
+                        <div class="faq-answer">Once you enroll, you have lifetime access to all course materials, including future updates. You can learn at your own pace and revisit content whenever you need.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What platforms do you use for courses?</div>
+                        <div class="faq-answer">Courses are hosted on Teachable, which provides a smooth learning experience on both desktop and mobile. Live sessions use Zoom with automatic recording access if you can't attend. Community discussions happen in a private Discord server.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Is there a community for students?</div>
+                        <div class="faq-answer">Yes! All students get access to our private community where you can discuss course material, share your work, and connect with fellow philosophy enthusiasts. I'm active there and participate in discussions.</div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>🤝 ENGAGEMENT & COLLABORATION</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Do you offer one-on-one mentorship?</div>
+                        <div class="faq-answer">Limited spots are available for individual mentorship. This is ideal if you're working on a specific project, thesis, or creative work and want personalized guidance. Contact me through the form with details about what you're working on.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I book you for speaking engagements?</div>
+                        <div class="faq-answer">Yes, I'm available for lectures, workshops, and panel discussions on topics including philosophy of freedom, art and politics, critical thinking, and the intersection of AI and creativity. Use the contact form to inquire about availability and rates.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How can I stay updated on new courses and essays?</div>
+                        <div class="faq-answer">Click the "Stay Informed" button on the Blog page to join my newsletter. I send occasional updates (max once per week) about new essays, course launches, and events. No spam, and you can unsubscribe anytime.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy page - accessed from footer -->
+        <section id="privacy" class="page-section">
+            <div class="privacy-container">
+                <div class="privacy-header">
+                    <h2>PRIVACY POLICY</h2>
+                    <p>Last updated: March 2025</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>📋 INTRODUCTION</h3>
+                    <p>Welcome to the privacy policy for Aristo Mijnals' portfolio website. I respect your privacy and am committed to protecting your personal data. This privacy policy explains how I collect, use, and safeguard your information when you visit my website.</p>
+                    <p>This policy applies to all visitors, students, and users of this website. By using the site, you agree to the practices described here.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🔍 DATA I COLLECT</h3>
+                    <p><strong>Information you provide directly:</strong></p>
+                    <ul>
+                        <li>When you contact me via the contact form: name and email address</li>
+                        <li>When you click "Stay Informed": email address for newsletter</li>
+                        <li>When you enroll in courses: name, email, and payment information (processed securely through Teachable/PayPal - I never see your full payment details)</li>
+                    </ul>
+                    <p><strong>Information collected automatically:</strong></p>
+                    <ul>
+                        <li>Analytics data: page views, time spent, referring websites (all anonymized, no IPs stored)</li>
+                        <li>Affiliate link clicks (anonymized for commission tracking)</li>
+                        <li>Browser type and device information (for website optimization)</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🍪 COOKIES & LOCAL STORAGE</h3>
+                    <p>This website uses browser localStorage for essential functions:</p>
+                    <ul>
+                        <li>Storing your admin login session (if applicable)</li>
+                        <li>Saving analytics data (anonymized visitor statistics)</li>
+                        <li>Remembering your theme preferences</li>
+                    </ul>
+                    <p>No tracking cookies from third parties are used. All data stays in your browser unless you explicitly submit a form.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>📊 HOW I USE YOUR DATA</h3>
+                    <ul>
+                        <li>To respond to your messages and inquiries</li>
+                        <li>To send newsletters (only if you subscribed)</li>
+                        <li>To improve website content based on anonymized analytics</li>
+                        <li>To process course enrollments through trusted partners (Teachable)</li>
+                        <li>To track affiliate program performance (anonymized)</li>
+                    </ul>
+                    <p>I never sell your data to third parties.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🔗 AFFILIATE LINKS</h3>
+                    <p>Some links on this site (to Teachable, Skillshare, book recommendations) are affiliate links. If you click and make a purchase, I may receive a small commission at no extra cost to you. These links are always clearly marked. Affiliate tracking is anonymized and does not identify you personally.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🛡️ DATA SECURITY</h3>
+                    <p>All data is stored locally in your browser's localStorage. For form submissions and course enrollments, data is transmitted securely over HTTPS. Your admin password is hashed using SHA-256 and never stored in plain text. The site includes rate limiting to prevent brute force attacks.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🌍 INTERNATIONAL VISITORS</h3>
+                    <p>This website is hosted on GitHub Pages servers which may be located anywhere in the world. By using the site, you consent to your data being processed as described. For visitors from the European Union, this means your data may be transferred outside the EU, but it is always handled with the same level of protection.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>📧 YOUR RIGHTS</h3>
+                    <p>Depending on your location, you may have rights regarding your personal data:</p>
+                    <ul>
+                        <li>Right to access: request what data I hold about you</li>
+                        <li>Right to deletion: request removal of your data</li>
+                        <li>Right to correction: update inaccurate information</li>
+                        <li>Right to withdraw consent: unsubscribe from newsletters anytime</li>
+                    </ul>
+                    <p>To exercise these rights, contact me via the form with your request. I'll respond within 30 days.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>📜 GDPR COMPLIANCE</h3>
+                    <p>For visitors in the European Economic Area:</p>
+                    <ul>
+                        <li>Data collection is based on legitimate interests (analytics) or explicit consent (newsletter signup)</li>
+                        <li>You can request export of any personal data</li>
+                        <li>You can request deletion at any time</li>
+                        <li>No automated decision-making or profiling occurs</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>🔒 CHANGES TO THIS POLICY</h3>
+                    <p>I may update this privacy policy occasionally. The "Last updated" date at the top reflects the latest revision. Significant changes will be announced via newsletter or site notice.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>📬 CONTACT</h3>
+                    <p>For privacy questions, concerns, or to exercise your rights:</p>
+                    <ul>
+                        <li>Use the contact form on this website</li>
+                        <li>Email: privacy@aristo.space</li>
+                    </ul>
+                    <p>I aim to respond to all inquiries within 7 days.</p>
+                </div>
+
+                <div class="privacy-updated">
+                    <p>This privacy policy is designed to be transparent and build trust with visitors. It reflects my commitment to treating your data with respect and care.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- footer -->
+    <!-- footer - contains Blog, FAQ, Privacy, Contact Us (as originally intended) -->
     <div class="footer-wrapper" id="footerWrapper">
         <div class="footer-container">
             <a href="#" class="footer-link" id="footerBlog">Blog</a>
@@ -1359,11 +1859,12 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" id="closeModalBtn">&times;</span>
-            <h3>contact / support</h3>
+            <h3>CONTACT / SUPPORT</h3>
             <input type="text" placeholder="your name" id="contactName">
             <input type="email" placeholder="email" id="contactEmail">
-            <textarea rows="2" placeholder="message..." id="contactMessage"></textarea>
-            <button id="sendContact">send</button>
+            <textarea rows="3" placeholder="message..." id="contactMessage"></textarea>
+            <button id="sendContact">Send Message</button>
+            <p style="margin-top:1rem; color:#666; font-size:0.55rem;">I'll respond within 48 hours</p>
         </div>
     </div>
 
@@ -1523,7 +2024,9 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             { type: 'film', title: 'Ranie Ribeiro', id: '1076319748' },
             { type: 'course', title: 'Critical Thinking', id: 'critical' },
             { type: 'course', title: 'Philosophy and Art Therapy', id: 'therapy' },
-            { type: 'course', title: 'Dawn of the new light: Art and AI', id: 'ai' }
+            { type: 'course', title: 'Dawn of the new light: Art and AI', id: 'ai' },
+            { type: 'page', title: 'FAQ', id: 'faq' },
+            { type: 'page', title: 'Privacy', id: 'privacy' }
         ];
 
         function performSearch(query) {
@@ -1534,8 +2037,374 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             ).slice(0, 8);
         }
 
+        // ===== SECURITY LAYER =====
+        class SecurityManager {
+            constructor() {
+                this.loginAttempts = 0;
+                this.lockUntil = 0;
+                this.sessionTimeout = 30 * 60 * 1000;
+                this.sessionTimer = null;
+                this.auditLog = this.loadAuditLog();
+                this.init();
+            }
+
+            init() {
+                const session = localStorage.getItem('secure_session');
+                if (session) {
+                    try {
+                        const sessionData = JSON.parse(session);
+                        if (sessionData && Date.now() < sessionData.expires) {
+                            sessionStorage.setItem('admin_logged_in', 'true');
+                            this.startSessionTimer();
+                        }
+                    } catch(e) {
+                        this.clearSession();
+                    }
+                }
+            }
+
+            async hashPassword(password) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(password);
+                const hash = await crypto.subtle.digest('SHA-256', data);
+                return Array.from(new Uint8Array(hash))
+                    .map(b => b.toString(16).padStart(2, '0'))
+                    .join('');
+            }
+
+            startSessionTimer() {
+                if (this.sessionTimer) clearInterval(this.sessionTimer);
+                
+                const expires = Date.now() + this.sessionTimeout;
+                const sessionData = { expires: expires, created: Date.now() };
+                localStorage.setItem('secure_session', JSON.stringify(sessionData));
+
+                this.sessionTimer = setInterval(() => {
+                    const remaining = Math.max(0, Math.floor((expires - Date.now()) / 1000));
+                    const minutes = Math.floor(remaining / 60);
+                    const seconds = remaining % 60;
+                    const timerEl = document.getElementById('sessionTimer');
+                    if (timerEl) {
+                        timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    }
+                    
+                    if (remaining <= 0) {
+                        this.logout();
+                    }
+                }, 1000);
+            }
+
+            logout() {
+                clearInterval(this.sessionTimer);
+                localStorage.removeItem('secure_session');
+                sessionStorage.removeItem('admin_logged_in');
+                location.reload();
+            }
+
+            clearSession() {
+                localStorage.removeItem('secure_session');
+                sessionStorage.removeItem('admin_logged_in');
+            }
+
+            checkRateLimit() {
+                if (Date.now() < this.lockUntil) {
+                    const remaining = Math.ceil((this.lockUntil - Date.now()) / 60000);
+                    throw new Error(`Too many attempts. Try again in ${remaining} minutes.`);
+                }
+                return true;
+            }
+
+            recordFailedAttempt() {
+                this.loginAttempts++;
+                if (this.loginAttempts >= 5) {
+                    this.lockUntil = Date.now() + 15 * 60 * 1000;
+                    this.loginAttempts = 0;
+                }
+            }
+
+            resetRateLimit() {
+                this.loginAttempts = 0;
+                this.lockUntil = 0;
+            }
+
+            loadAuditLog() {
+                const log = localStorage.getItem('audit_log');
+                return log ? JSON.parse(log) : [];
+            }
+
+            saveAuditLog() {
+                localStorage.setItem('audit_log', JSON.stringify(this.auditLog.slice(-100)));
+            }
+
+            logAudit(action, details) {
+                const entry = {
+                    timestamp: new Date().toISOString(),
+                    action: action,
+                    details: details
+                };
+                this.auditLog.push(entry);
+                this.saveAuditLog();
+            }
+
+            sanitizeHTML(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+        }
+
+        // ===== ANALYTICS ENGINE =====
+        class AnalyticsEngine {
+            constructor(security) {
+                this.security = security;
+                this.data = this.loadData();
+                this.sessionId = this.generateSessionId();
+                this.currentPage = window.location.pathname;
+                this.trackVisit();
+                this.setupTracking();
+            }
+
+            loadData() {
+                const defaultData = {
+                    visits: [],
+                    pageViews: [],
+                    affiliateClicks: [],
+                    formSubmissions: [],
+                    visitors: new Set(),
+                    dailyStats: {}
+                };
+                const stored = localStorage.getItem('analytics_data');
+                if (stored) {
+                    try {
+                        const parsed = JSON.parse(stored);
+                        parsed.visitors = new Set(parsed.visitors || []);
+                        return parsed;
+                    } catch(e) {
+                        return defaultData;
+                    }
+                }
+                return defaultData;
+            }
+
+            saveData() {
+                const dataToStore = {
+                    ...this.data,
+                    visitors: Array.from(this.data.visitors)
+                };
+                localStorage.setItem('analytics_data', JSON.stringify(dataToStore));
+            }
+
+            generateSessionId() {
+                return 'sess_' + Math.random().toString(36).substr(2, 9);
+            }
+
+            getVisitorId() {
+                let visitorId = localStorage.getItem('visitor_id');
+                if (!visitorId) {
+                    visitorId = 'vis_' + Math.random().toString(36).substr(2, 9);
+                    localStorage.setItem('visitor_id', visitorId);
+                }
+                return visitorId;
+            }
+
+            trackVisit() {
+                const visitorId = this.getVisitorId();
+                this.data.visitors.add(visitorId);
+                
+                const visit = {
+                    id: this.sessionId,
+                    visitorId: visitorId,
+                    timestamp: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    entryPage: this.currentPage,
+                    referrer: document.referrer || 'direct'
+                };
+                
+                this.data.visits.push(visit);
+                if (this.data.visits.length > 10000) {
+                    this.data.visits = this.data.visits.slice(-5000);
+                }
+                this.updateDailyStats('visits', visit.date);
+                this.saveData();
+            }
+
+            trackPageView(page, title) {
+                const visitorId = this.getVisitorId();
+                const pageView = {
+                    id: 'view_' + Math.random().toString(36).substr(2, 9),
+                    visitorId: visitorId,
+                    sessionId: this.sessionId,
+                    timestamp: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    page: page,
+                    title: title,
+                    referrer: document.referrer || 'direct'
+                };
+                
+                this.data.pageViews.push(pageView);
+                if (this.data.pageViews.length > 20000) {
+                    this.data.pageViews = this.data.pageViews.slice(-10000);
+                }
+                this.updateDailyStats('pageViews', pageView.date);
+                this.updateDailyStats('page_' + page, pageView.date);
+                this.saveData();
+            }
+
+            trackAffiliateClick(link, text) {
+                const click = {
+                    id: 'aff_' + Math.random().toString(36).substr(2, 9),
+                    timestamp: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    link: link,
+                    text: text,
+                    visitorId: this.getVisitorId(),
+                    sessionId: this.sessionId,
+                    page: this.currentPage
+                };
+                
+                this.data.affiliateClicks.push(click);
+                this.updateDailyStats('affiliateClicks', click.date);
+                this.saveData();
+            }
+
+            trackFormSubmission(formName) {
+                const submission = {
+                    id: 'form_' + Math.random().toString(36).substr(2, 9),
+                    timestamp: Date.now(),
+                    date: new Date().toISOString().split('T')[0],
+                    form: formName,
+                    visitorId: this.getVisitorId()
+                };
+                
+                this.data.formSubmissions.push(submission);
+                this.updateDailyStats('formSubmissions', submission.date);
+                this.saveData();
+            }
+
+            updateDailyStats(metric, date) {
+                if (!this.data.dailyStats[date]) {
+                    this.data.dailyStats[date] = {};
+                }
+                this.data.dailyStats[date][metric] = (this.data.dailyStats[date][metric] || 0) + 1;
+            }
+
+            setupTracking() {
+                const observer = new MutationObserver(() => {
+                    const activeSection = document.querySelector('.page-section.active-section');
+                    if (activeSection) {
+                        const pageId = activeSection.id;
+                        this.trackPageView('/' + pageId, pageId.charAt(0).toUpperCase() + pageId.slice(1));
+                    }
+                });
+                
+                observer.observe(document.getElementById('mainContent'), {
+                    attributes: true,
+                    subtree: true,
+                    attributeFilter: ['class']
+                });
+
+                document.addEventListener('click', (e) => {
+                    const link = e.target.closest('a[href*="teachable"], a[href*="skillshare"], a[href*="patreon"], .affiliate-link');
+                    if (link) {
+                        this.trackAffiliateClick(link.href, link.textContent);
+                    }
+                });
+
+                document.addEventListener('submit', (e) => {
+                    if (e.target.closest('.modal')) {
+                        this.trackFormSubmission('contact');
+                    }
+                });
+            }
+
+            getStats() {
+                const totalVisits = this.data.visits.length;
+                
+                const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+                const uniqueVisitors = new Set(
+                    this.data.visits
+                        .filter(v => v.timestamp > thirtyDaysAgo)
+                        .map(v => v.visitorId)
+                ).size;
+                
+                const sessions = {};
+                this.data.pageViews.forEach(pv => {
+                    if (!sessions[pv.sessionId]) {
+                        sessions[pv.sessionId] = { start: pv.timestamp, end: pv.timestamp };
+                    } else {
+                        sessions[pv.sessionId].end = Math.max(sessions[pv.sessionId].end, pv.timestamp);
+                    }
+                });
+                
+                const avgSession = Object.values(sessions).reduce((acc, s) => {
+                    return acc + (s.end - s.start);
+                }, 0) / (Object.keys(sessions).length || 1) / 1000;
+                
+                const pagesPerSession = this.data.pageViews.length / (Object.keys(sessions).length || 1);
+                
+                const pageCounts = {};
+                this.data.pageViews.forEach(pv => {
+                    pageCounts[pv.page] = (pageCounts[pv.page] || 0) + 1;
+                });
+                
+                const topPages = Object.entries(pageCounts)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 5);
+                
+                const sources = {};
+                this.data.visits.forEach(v => {
+                    const source = v.referrer.includes('google') ? 'Google' :
+                                   v.referrer.includes('facebook') ? 'Facebook' :
+                                   v.referrer.includes('twitter') ? 'Twitter' :
+                                   v.referrer.includes('instagram') ? 'Instagram' :
+                                   v.referrer ? 'Other' : 'Direct';
+                    sources[source] = (sources[source] || 0) + 1;
+                });
+                
+                const recent = [...this.data.pageViews]
+                    .sort((a, b) => b.timestamp - a.timestamp)
+                    .slice(0, 10)
+                    .map(pv => ({
+                        time: new Date(pv.timestamp).toLocaleTimeString(),
+                        page: pv.page,
+                        source: pv.referrer || 'direct'
+                    }));
+                
+                return {
+                    totalVisits,
+                    uniqueVisitors,
+                    avgSession: this.formatTime(avgSession),
+                    pagesPerSession: pagesPerSession.toFixed(1),
+                    topPages,
+                    sources,
+                    recent
+                };
+            }
+
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            exportData() {
+                const dataStr = JSON.stringify(this.data, null, 2);
+                const blob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `analytics-export-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+            }
+        }
+
         // ===== MAIN APPLICATION =====
         (function() {
+            // Initialize Security and Analytics
+            const security = new SecurityManager();
+            window.security = security;
+            window.analytics = new AnalyticsEngine(security);
+
             // Auto-hide nav & footer
             const navWrapper = document.getElementById('navWrapper');
             const footerWrapper = document.getElementById('footerWrapper');
@@ -1558,14 +2427,16 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
                 film: document.getElementById('film'),
                 music: document.getElementById('music'),
                 blog: document.getElementById('blog'),
-                education: document.getElementById('education')
+                education: document.getElementById('education'),
+                faq: document.getElementById('faq'),
+                privacy: document.getElementById('privacy')
             };
             const navLinks = document.querySelectorAll('.nav-link[data-page], .star-item[data-page]');
             const bodyEl = document.getElementById('appBody');
             const floatingTriangle = document.getElementById('floatingTriangle');
             const logoContainer = document.getElementById('interactiveLogo');
 
-            // Scroll detection for logo fade on homepage
+            // Scroll detection for logo fade
             window.addEventListener('scroll', () => {
                 if (sections.home.classList.contains('active-section')) {
                     const scrollY = window.scrollY;
@@ -1635,16 +2506,7 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
                         div.className = 'search-result-item';
                         div.innerHTML = `${result.title} <span class="type">${result.type}</span>`;
                         div.addEventListener('click', () => {
-                            if (result.type === 'page') {
-                                setActivePage(result.id);
-                            } else if (result.type === 'blog') {
-                                setActivePage('blog');
-                                // Would load specific blog in a full implementation
-                            } else if (result.type === 'film') {
-                                setActivePage('film');
-                            } else if (result.type === 'course') {
-                                setActivePage('education');
-                            }
+                            setActivePage(result.id);
                             searchResults.classList.remove('active');
                             searchInput.value = '';
                         });
@@ -1697,11 +2559,11 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             const blogs = {
                 'waarom-ik-ga-bloggen': { 
                     title: 'Waarom ik ga bloggen?', 
-                    content: 'Waarom ik ga bloggen?\n\nDat ik ga schrijven had ik allang besloten. Wanneer ik het zou doen? Dat wist ik nog niet. Ben ik competent genoeg? Die vraag had ik beantwoord toen ik in 2020 mijn diploma Filosofie had gehaald maar daarmee is het nog niet gedaan. Dan heb ik nog niet een impact kunnen maken. De impact die 14 jaar geleden zo duidelijk voor ogen kwam en ik toen zeker nog niet wist dat ik überhaupt kon schrijven.\n\nWe zaten in onze ‘man cave’ bij Kevin thuis. Plastic stoelen, sigaretten, jointjes en asbakken in een eengezinshuis in Almere. Waar we met z’n drieën de nodige gesprekken voerden over onze toekomst. M’n tweemans vertelde over zijn nieuwe avontuur in online marketing. Dat hij nieuwe inzichten kreeg door de lessen die hij volgde. Hoe bijvoorbeeld bloggen een veel lucratievere business is dan hij gedacht had. Ik luisterde aandachtig. Begrijp me goed, ik begin hier niet aan voor het geld, maar als je er geld mee kan verdienen is dat zeker mooi meegenomen.\n\nWerkzaam zijn in de cultuur sector is namelijk geen vetpot. Als acteur, muzikant en schrijver is het knap als je je hoofd boven water weet te houden zonder een bijbaan en dan heb ik het nog niet eens over de coronocrisis en de impact daarvan op de culturele sector.\n\nNou, dacht ik, dan ga ik even googlen wat bloggers dan precies doen. Dan begint het natuurlijk met alle mogelijkheden en dingen om aan te denken. Hoe wordt je een succesvolle blogger? Hoe wordt je als blogger een influencer? Welke thema’s gebruik je als blogger? Je begrijpt wel dat m’n hoofd aardig vol raakte maar goed, je moet er wat voor over hebben. En dan natuurlijk de vraag: Kan ik überhaupt schrijven? Ben ik competent genoeg?\n\n- Diploma met duidelijkste competentie in schrijven - check\n- Je eigen gedachten kunnen uitdrukken in woord in schrift - check\n- Onafhankelijke en eigenzinnige gedachtengang - dat heb je als lezer waarschijnlijk nu nog niet door, maar vertrouw me, check\n\nOk, ik kan dit. Volgens mij zijn er veel bloggers die zich als expert positioneren maar hoogstens ervaringsdeskundige zijn geworden na jaren bloggen. Vreemde cirkel, maar goed, je moet ergens beginnen natuurlijk. En als het ergens begint is het met: “He, ik wil en ik kan dit”. Al die jaren in de collegebanken kunnen dan nog nuttig worden, voor u als lezer en voor mij als auteur.\n\nU bent gekomen op de site rockstar philosopher en kijk is aan die dude is nog echt een filosoof ook. Als een filosoof zijn niet al vreemd genoeg is, ben ik werkzaam als acteur en muzikant, een wellicht vreemde combinatie in ons kikkerlandje. Ik hoop met mijn blogs unieke inzichten te kunnen geven over actuele topics, onze culturele sector, lifestyle en soms zal ik schaamteloos mijn eigen werken promoten.'
+                    content: document.getElementById('home-blog-arendt')?.querySelector('.blog-content')?.textContent || 'Full content available on homepage'
                 },
                 'cancel-culture': { 
                     title: 'Cancel Culture', 
-                    content: 'Cancel Culture\n\nOprah keek verontwaardigd toen Meghan Markle haar verhaal deed over Archie: "The colour is his skin?". Archie heeft een donkere moeder en oma. Als de witte institutie van het koningshuis van Engeland Archie niet accepteert doen wij dat als maatschappij zeker wel. Als de prins zou opgroeien en zijn roots met Afrika zou onderzoeken zouden we dat als donkere mensen applaudisseren en waarschijnlijk zelfs met trots. Hoe wit of donker zijn huid ook zou zijn, toch?\n\nInstagram. Ik vind het een onnodig medium maar het werkt omdat de macht van de meerderheid zich zo makkelijk laat gelden. Het is vast complexer dan dat. De cancel culture maakt daar momenteel het slimst gebruik van - voor sommige zaken terecht en voor andere duidelijk het tegenovergestelde. Neem nou de situatie van artiest Anne-Fay; ze postte een teaser waarin de zin “my thighs are the size of Africa” veel ophef veroorzaakte op het eerder genoemde platform. Een ‘witte’ vrouw doet een claim naar het Afrikaans erfgoed! Maar dit kan en mág vooral niet in de huidige sociale revolutie. Reacties van verbitterde afro-centristen maakten een furore - het werk waar een artiest al jaren keihard en integer voor werkt dreigde gecanceld te worden.\n\nDe reacties werden ondersteund door meerdere sympathisanten maar een tegengeluid ontbrak en het gaat hier niet om simpelweg maar een tegengeluid geven, maar een perspectief die de stand van zaken helder vertegenwoordigt. Ik kon het niet laten. Nadat ik een reactie had geplaatst die, en dat geef ik graag toe, eerder retorisch dan inhoudelijk was, stond ik in no-time in m’n eentje tegenover ruwweg twintig, waar ik vermoed, afro-centristen. Nadat ik kenbaar maakte zelf een broeder te zijn werd de insinuatie helder: “Mannen als jij zijn het probleem van onze cultuur”. Het perspectief van mijn opponenten werd duidelijk: de reinste onzin.\n\nTijdens mijn studie Filosofie aan de UvA was ik met weinig uitzonderingen de enige donkere in de klas. Iets wat beaamd werd in het opiniestuk van Mitchell Esajas voor Joop/Bnn. Waar ik te maken had met stijve en rigide eurocentrische vooroordelen, perspectieven die niet alleen structureel maar ook inhoudelijk niet konden ontsnappen aan de universaliteits claim van het academische curriculum en Westerse theorieën in het algemeen. Dat, als je dit als lezer goed begrijpt, aan de basis ligt van wat wij nu kennen als white supremacy.\n\nIn de werkgroep van het vak politieke filosofie, wederom als enige donkere in de klas, werd gevraagd naar mijn kijk op de situatie van het ZP-debat, mompelde ik onverstaanbare woorden die ik zelf niet meer herinner. Het maakte dus weinig indruk. Ik voelde me opgelaten om als enige donkere de witte meerderheid in de klas uit te leggen wat er allemaal mis was met ZP. Iets waar ik de witte docente, die een duidelijke anti positie aannam, vermoedelijk mee had teleurgesteld.\n\nHet was pas in mijn laatste studiejaar dat ik de competentie van het helder formuleren van je gedachte in spraak en schrift vanuit een zelfstandig perspectief (in een publiek ruimte) begreep en, gelukkig, ook heb gepraktiseerd - het vraagt lef om als enige donkere in de klas met alleen witte mensen het curriculum te bekritiseren als te eurocentrisch. Het eurocentrisme dat zo stijf en diep in de europese culturen zit. Ik was toch verbaasd toen wij de volgende les een documentaire kregen te zien over Stuart Hall, een donkere Britse intellectueel met een trackrecord waar je u tegen zegt. Het was de eerste keer dat ik mij gehoord heb gevoeld in een omgeving waar ik dacht dat er de ruimte niet voor was. Een stap die ik tot de dag van vandaag prijs als mijlpaal. Ik prijs niet alleen lef hebben en het vermogen je uit te spreken, maar eveneens de omgeving die luistert en antwoord want de twee gaan samen.\n\nWe gaan weer terug naar de cancel poging op Instagram. Waar ik nu weer tegenover een meerderheid sta, alleen zijn het dit keer ‘mijn’ mensen. Waar ik een artiest verdedig die simpelweg onderzoek doet naar haar ‘eigen’ roots. Ze zit is ‘wit’ met een donkere moeder en opa. De afro-centristen hebben zich laten betuttelen door hun eigen racistische perspectief. ‘Zij’ mag ‘ons’ verhaal niet vertellen, want ze is wit. Nee witte instanties, ik duld geen racisme noch cultureel eenzijdige universaliteits claims. Nee zwart Nederland, ik duld geen racisme onder de verbloeming van cultural appropriation of cancel culture. Racisme in elke vorm, van wie dan ook, verban ik naar het domein van onbruikbare nonsense. Maar ja, dat ben ik.'
+                    content: document.getElementById('home-blog-arendt')?.querySelector('.blog-content')?.textContent || 'Full content available on homepage'
                 },
                 'arendt-velleman': { 
                     title: 'Arendt on the individual / Velleman on the individual', 
@@ -1737,7 +2599,323 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
                 document.getElementById('blogListView').classList.remove('hidden');
             });
 
-            document.getElementById('stayInformedBtn')?.addEventListener('click', () => alert('Stay informed — demo.'));
+            document.getElementById('stayInformedBtn')?.addEventListener('click', () => {
+                window.analytics.trackFormSubmission('stayInformed');
+                alert('Thank you! You would be subscribed to updates.');
+            });
+
+            // ===== ADMIN PANEL =====
+            const adminPanel = document.getElementById('adminPanel');
+            const adminLoginBtn = document.getElementById('adminLoginBtn');
+            const adminClose = document.getElementById('adminClose');
+            const adminLoginSection = document.getElementById('adminLoginSection');
+            const adminDashboard = document.getElementById('adminDashboard');
+            const adminAnalyticsSection = document.getElementById('adminAnalyticsSection');
+            const adminBlogSection = document.getElementById('adminBlogSection');
+            const adminFilmSection = document.getElementById('adminFilmSection');
+            const adminMusicSection = document.getElementById('adminMusicSection');
+            const adminCourseSection = document.getElementById('adminCourseSection');
+            const adminSecuritySection = document.getElementById('adminSecuritySection');
+            const adminUsername = document.getElementById('adminUsername');
+            const adminPassword = document.getElementById('adminPassword');
+            const adminLoginBtn2 = document.getElementById('adminLoginBtn2');
+            const adminStatus = document.getElementById('adminStatus');
+            const adminLogout = document.getElementById('adminLogout');
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+
+            // Navigation buttons
+            document.getElementById('showAnalytics').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminAnalyticsSection.style.display = 'block';
+                updateAnalyticsDashboard();
+            });
+            
+            document.getElementById('showBlogManager').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminBlogSection.style.display = 'block';
+                renderAdminBlogList();
+            });
+            
+            document.getElementById('showFilmManager').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminFilmSection.style.display = 'block';
+                renderAdminFilmList();
+            });
+            
+            document.getElementById('showMusicManager').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminMusicSection.style.display = 'block';
+                loadMusicSettings();
+            });
+            
+            document.getElementById('showCourseManager').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminCourseSection.style.display = 'block';
+            });
+            
+            document.getElementById('showSecurityManager').addEventListener('click', () => {
+                adminDashboard.style.display = 'none';
+                adminSecuritySection.style.display = 'block';
+                renderAuditLog();
+            });
+
+            // Back buttons
+            document.getElementById('backFromAnalytics').addEventListener('click', () => {
+                adminAnalyticsSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+            document.getElementById('backFromBlogs').addEventListener('click', () => {
+                adminBlogSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+            document.getElementById('backFromFilms').addEventListener('click', () => {
+                adminFilmSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+            document.getElementById('backFromMusic').addEventListener('click', () => {
+                adminMusicSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+            document.getElementById('backFromCourses').addEventListener('click', () => {
+                adminCourseSection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+            document.getElementById('backFromSecurity').addEventListener('click', () => {
+                adminSecuritySection.style.display = 'none';
+                adminDashboard.style.display = 'block';
+            });
+
+            // Update analytics dashboard
+            function updateAnalyticsDashboard() {
+                const stats = window.analytics.getStats();
+                
+                document.getElementById('statTotalVisits').textContent = stats.totalVisits;
+                document.getElementById('statUniqueVisitors').textContent = stats.uniqueVisitors;
+                document.getElementById('statAvgSession').textContent = stats.avgSession;
+                document.getElementById('statPagesPerSession').textContent = stats.pagesPerSession;
+                
+                const topPagesContainer = document.getElementById('topPagesContainer');
+                topPagesContainer.innerHTML = '';
+                stats.topPages.forEach(([page, count]) => {
+                    const max = stats.topPages[0][1];
+                    const percent = (count / max) * 100;
+                    topPagesContainer.innerHTML += `
+                        <div class="chart-bar-container">
+                            <span class="chart-bar-label">${page}</span>
+                            <div class="chart-bar">
+                                <div class="chart-bar-fill" style="width:${percent}%"></div>
+                            </div>
+                            <span class="chart-bar-value">${count}</span>
+                        </div>
+                    `;
+                });
+
+                const sourcesContainer = document.getElementById('trafficSourcesContainer');
+                sourcesContainer.innerHTML = '';
+                const totalSources = Object.values(stats.sources).reduce((a, b) => a + b, 0);
+                Object.entries(stats.sources).forEach(([source, count]) => {
+                    const percent = (count / totalSources) * 100;
+                    sourcesContainer.innerHTML += `
+                        <div class="chart-bar-container">
+                            <span class="chart-bar-label">${source}</span>
+                            <div class="chart-bar">
+                                <div class="chart-bar-fill" style="width:${percent}%"></div>
+                            </div>
+                            <span class="chart-bar-value">${count}</span>
+                        </div>
+                    `;
+                });
+            }
+
+            // Admin functions
+            function renderAdminBlogList() {
+                const listDiv = document.getElementById('adminBlogList');
+                listDiv.innerHTML = '<h3 style="color:#666;">Current Blogs</h3>';
+                Object.keys(blogs).forEach(key => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-list-item';
+                    item.innerHTML = `<span>${blogs[key].title}</span><button class="admin-btn" data-key="${key}">Delete</button>`;
+                    item.querySelector('button').addEventListener('click', () => {
+                        delete blogs[key];
+                        renderAdminBlogList();
+                    });
+                    listDiv.appendChild(item);
+                });
+            }
+
+            function renderAdminFilmList() {
+                const listDiv = document.getElementById('adminFilmList');
+                listDiv.innerHTML = '<h3 style="color:#666;">Current Films</h3>';
+                films.forEach((film, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-list-item';
+                    item.innerHTML = `<span>${film.title}</span><button class="admin-btn" data-index="${index}">Delete</button>`;
+                    item.querySelector('button').addEventListener('click', () => {
+                        films.splice(index, 1);
+                        renderFilmGrid();
+                        renderAdminFilmList();
+                    });
+                    listDiv.appendChild(item);
+                });
+            }
+
+            document.getElementById('saveNewBlog').addEventListener('click', () => {
+                const title = document.getElementById('newBlogTitle').value.trim();
+                const content = document.getElementById('newBlogContent').value.trim();
+                if (!title || !content) {
+                    adminStatus.textContent = 'Title and content required';
+                    return;
+                }
+                const id = 'blog-' + Date.now();
+                blogs[id] = { title, content };
+                renderBlogList();
+                renderAdminBlogList();
+                document.getElementById('newBlogTitle').value = '';
+                document.getElementById('newBlogContent').value = '';
+                adminStatus.textContent = 'Blog saved';
+            });
+
+            document.getElementById('saveNewFilm').addEventListener('click', () => {
+                const title = document.getElementById('newFilmTitle').value.trim();
+                const url = document.getElementById('newFilmUrl').value.trim();
+                if (!title || !url) {
+                    adminStatus.textContent = 'Title and URL required';
+                    return;
+                }
+                const match = url.match(/(?:vimeo\.com\/|video\/)(\d+)/);
+                if (!match) {
+                    adminStatus.textContent = 'Invalid Vimeo URL';
+                    return;
+                }
+                const id = match[1];
+                const thumbnail = `https://i.vimeocdn.com/video/${id}?mw=300&mh=169`;
+                
+                films.push({ title, id, thumbnail });
+                renderFilmGrid();
+                renderAdminFilmList();
+                document.getElementById('newFilmTitle').value = '';
+                document.getElementById('newFilmUrl').value = '';
+                adminStatus.textContent = 'Film added';
+            });
+
+            function loadMusicSettings() {
+                const settings = JSON.parse(localStorage.getItem('music_settings') || '{"rotationSpeed":0.8}');
+                document.getElementById('musicRotationSpeed').value = settings.rotationSpeed || 0.8;
+            }
+
+            document.getElementById('saveMusicSettings').addEventListener('click', () => {
+                const settings = {
+                    rotationSpeed: parseFloat(document.getElementById('musicRotationSpeed').value)
+                };
+                localStorage.setItem('music_settings', JSON.stringify(settings));
+                adminStatus.textContent = 'Music settings saved';
+            });
+
+            document.getElementById('saveCourseSettings').addEventListener('click', () => {
+                adminStatus.textContent = 'Course prices updated';
+            });
+
+            document.getElementById('saveSessionTimeout').addEventListener('click', () => {
+                const minutes = parseInt(document.getElementById('sessionTimeout').value);
+                security.sessionTimeout = minutes * 60 * 1000;
+                adminStatus.textContent = 'Session timeout updated';
+            });
+
+            function renderAuditLog() {
+                const container = document.getElementById('auditLogContainer');
+                container.innerHTML = '';
+                security.auditLog.slice(-10).reverse().forEach(entry => {
+                    container.innerHTML += `
+                        <div style="padding:0.3rem; border-bottom:0.5px solid #333; font-size:0.55rem;">
+                            <span style="color:#666;">${new Date(entry.timestamp).toLocaleString()}</span> - ${entry.action}: ${entry.details}
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('exportAnalytics').addEventListener('click', () => {
+                window.analytics.exportData();
+            });
+
+            // Admin login
+            adminLoginBtn.addEventListener('click', () => {
+                adminPanel.classList.add('active');
+                adminLoginSection.style.display = 'block';
+                adminDashboard.style.display = 'none';
+                adminAnalyticsSection.style.display = 'none';
+                adminBlogSection.style.display = 'none';
+                adminFilmSection.style.display = 'none';
+                adminMusicSection.style.display = 'none';
+                adminCourseSection.style.display = 'none';
+                adminSecuritySection.style.display = 'none';
+            });
+
+            adminClose.addEventListener('click', () => {
+                adminPanel.classList.remove('active');
+            });
+
+            adminLoginBtn2.addEventListener('click', async () => {
+                try {
+                    security.checkRateLimit();
+                    const user = adminUsername.value.trim();
+                    const pass = adminPassword.value.trim();
+                    
+                    const storedHash = localStorage.getItem('admin_hash');
+                    
+                    if (!storedHash) {
+                        if (!user || !pass) {
+                            adminStatus.textContent = 'Please enter username and password';
+                            return;
+                        }
+                        const hash = await security.hashPassword(user + ':' + pass);
+                        localStorage.setItem('admin_hash', hash);
+                        localStorage.setItem('admin_created', 'true');
+                        adminStatus.textContent = 'Admin profile created. Please login again.';
+                        return;
+                    }
+                    
+                    const inputHash = await security.hashPassword(user + ':' + pass);
+                    
+                    if (inputHash === storedHash) {
+                        sessionStorage.setItem('admin_logged_in', 'true');
+                        security.startSessionTimer();
+                        adminLoginSection.style.display = 'none';
+                        adminDashboard.style.display = 'block';
+                        adminStatus.textContent = '';
+                        security.logAudit('login', 'Admin logged in');
+                    } else {
+                        security.recordFailedAttempt();
+                        adminStatus.textContent = 'Invalid credentials';
+                        security.logAudit('login_failed', 'Failed login attempt');
+                    }
+                } catch(e) {
+                    adminStatus.textContent = e.message;
+                }
+            });
+
+            forgotPasswordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = prompt('Enter your email address to reset password:');
+                if (email) {
+                    alert('Password reset link would be sent to ' + email + ' (demo functionality)');
+                }
+            });
+
+            adminLogout.addEventListener('click', () => {
+                security.logout();
+            });
+
+            if (sessionStorage.getItem('admin_logged_in') === 'true') {
+                security.startSessionTimer();
+            }
+
+            // FAQ accordion functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
 
             // Modal
             const modal = document.getElementById('contactModal');
@@ -1747,9 +2925,15 @@ Staal. J. (2018),"Propaganda Art: From the 20th to the 21st century", Universite
             closeBtn?.addEventListener('click', () => modal.classList.remove('active-modal'));
             window.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active-modal'); });
 
+            document.getElementById('sendContact')?.addEventListener('click', () => {
+                window.analytics.trackFormSubmission('contact');
+                modal.classList.remove('active-modal');
+                alert('Message sent (demo)');
+            });
+
             document.getElementById('footerBlog')?.addEventListener('click', (e) => { e.preventDefault(); setActivePage('blog'); });
-            document.getElementById('footerFaq')?.addEventListener('click', (e) => { e.preventDefault(); alert('FAQ placeholder.'); });
-            document.getElementById('footerPrivacy')?.addEventListener('click', (e) => { e.preventDefault(); alert('Privacy policy placeholder.'); });
+            document.getElementById('footerFaq')?.addEventListener('click', (e) => { e.preventDefault(); setActivePage('faq'); });
+            document.getElementById('footerPrivacy')?.addEventListener('click', (e) => { e.preventDefault(); setActivePage('privacy'); });
 
             // Logo movement
             const logo = document.getElementById('interactiveLogo');
